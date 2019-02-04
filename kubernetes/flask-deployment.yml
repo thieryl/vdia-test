@@ -12,21 +12,21 @@ spec:
         app: flask
     spec:
       containers:
-      - name: flask
-        image: mjhea0/flask-kubernetes:latest
-        env:
-        - name: FLASK_ENV
-          value: "development"
-        - name: APP_SETTINGS
-          value: "project.config.DevelopmentConfig"
-        - name: POSTGRES_USER
-          valueFrom:
-            secretKeyRef:
-              name: postgres-credentials
-              key: user
-        - name: POSTGRES_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: postgres-credentials
-              key: password
+        - name: flask
+          image: thieryl/vdia-test:latest
+          env:
+            - name: FLASK_ENV
+              value: "development"
+            - name: APP_SETTINGS
+              value: "project.config.DevelopmentConfig"
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-credentials
+                  key: user
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-credentials
+                  key: password
       restartPolicy: Always
