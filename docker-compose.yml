@@ -1,9 +1,10 @@
-version: "3.7"
+version: '3.7'
 
 services:
+
   server:
     build:
-      context: ./webapp
+      context: ./services/server
       dockerfile: Dockerfile
     ports:
       - 5001:5000
@@ -17,10 +18,19 @@ services:
 
   postgres:
     build:
-      context: ./db
+      context: ./services/db
       dockerfile: Dockerfile
     expose:
       - 5432
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
+
+  client:
+    build:
+      context: ./services/client
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    depends_on:
+      - server
