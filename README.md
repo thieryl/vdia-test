@@ -1,4 +1,17 @@
-# Running Flask on Kubernetes
+# Aptitude Test
+
+For the purpose of this aptitude test, all docker images have already been built and push to the my personal Docker hub repository and puplicly available for download and use.
+
+This stack was build using the following technologies:
+
+    - Python 3.7
+    - Flask the python MicroFramework
+    - Vue JS and Node JS
+    - PostgreSQL for the database
+    - Docker for container image creation
+    - Virtualbox to simulate Kubernetes and perform test
+    - Minikube to emulate Kubernetes
+    - Kubectl for docker Orchestration
 
 # What is Container Orchestration?
 
@@ -6,32 +19,32 @@ As you move from deploying containers on a single machine to deploying them acro
 
 Orchestration tools help with:
 
-- Cross-server container communication
-- Horizontal scaling
-- Service discovery
-- Load balancing
-- Security/TLS
-- Zero-downtime deploys
-- Rollbacks
-- Logging
-- Monitoring
+    - Cross-server container communication
+    - Horizontal scaling
+    - Service discovery
+    - Load balancing
+    - Security/TLS
+    - Zero-downtime deploys
+    - Rollbacks
+    - Logging
+    - Monitoring
 
 # Kubernetes Concepts
 
-Before diving in, let's look at some of the basic building blocks that you have to work with from the Kubernetes API:
+Before diving in, let's look at some of the basic building blocks that you have to work with from the Kubernetes API
 
-1. A **Node** is a worker machine provisioned to run Kubernetes. Each Node is managed by the Kubernetes master.
-2. A **Pod** is a logical, tightly-coupled group of application containers that run on a Node. Containers in a Pod are deployed together and share resources (like data volumes and network addresses). Multiple Pods can run on a single Node.
-3. A **Service** is a logical set of Pods that perform a similar function. It enables load balancing and service discovery. It's an abstraction layer over the Pods. Pods are meant to be ephemeral while services are much more persistent.
-4. **Deployments** are used to describe the desired state of Kubernetes. They dictate how Pods are created, deployed, and replicated.
-5. **Labels** are key/value pairs that are attached to resources (like Pods) which are used to organize related resources. You can think of them like CSS selectors. For example:
-   - Environment - dev, test, prod
-   - App version - beta, 1.2.1
-   - Type - client, server, db
-6. **Ingress** is a set of routing rules used to control the external access to Services based on the request host or path.
-7. **Volumes** are used to persist data beyond the life of a container. They are especially important for stateful applications like Redis and Postgres.
-   - A PersistentVolume defines a storage volume independent of the normal Pod-lifecycle. It's managed outside of the particular Pod that it resides in.
-   - A PersistentVolumeClaim is a request to use the PersistentVolume by a user.
+    1. A **Node** is a worker machine provisioned to run Kubernetes. Each Node is managed by the Kubernetes master.
+    2. A **Pod** is a logical, tightly-coupled group of application containers that run on a Node. Containers in a Pod are deployed together and share  resources (like data volumes and network addresses). Multiple Pods can run on a single Node.
+    3. A **Service** is a logical set of Pods that perform a similar function. It enables load balancing and service discovery. It's an abstraction layer   over the Pods. Pods are meant to be ephemeral while services are much more persistent.
+    4. **Deployments** are used to describe the desired state of Kubernetes. They dictate how Pods are created, deployed, and replicated.
+    5. **Labels** are key/value pairs that are attached to resources (like Pods) which are used to organize related resources. You can think of them like   CSS selectors. For example:
+       - Environment - dev, test, prod
+       - App version - beta, 1.2.1
+       - Type - client, server, db
+    6. **Ingress** is a set of routing rules used to control the external access to Services based on the request host or path.
+    7. **Volumes** are used to persist data beyond the life of a container. They are especially important for stateful applications like Redis and Postgres.
+       - A PersistentVolume defines a storage volume independent of the normal Pod-lifecycle. It's managed outside of the particular Pod that it resides in.
+       - A PersistentVolumeClaim is a request to use the PersistentVolume by a user.
 
 ## Want to use this project?
 
