@@ -1,8 +1,20 @@
 # Running Flask on Kubernetes
 
-## Want to learn how to build this?
+# What is Container Orchestration?
 
-Check out the [post](https://testdriven.io/running-flask-on-kubernetes).
+As you move from deploying containers on a single machine to deploying them across a number of machines, you'll need an orchestration tool to manage (and automate) the arrangement, coordination, and availability of the containers across the entire system.
+
+Orchestration tools help with:
+
+- Cross-server container communication
+- Horizontal scaling
+- Service discovery
+- Load balancing
+- Security/TLS
+- Zero-downtime deploys
+- Rollbacks
+- Logging
+- Monitoring
 
 ## Want to use this project?
 
@@ -33,7 +45,7 @@ Test it out at:
 
 Install and run [Minikube](https://kubernetes.io/docs/setup/minikube/):
 
-1. Install a  [Hypervisor](https://kubernetes.io/docs/tasks/tools/install-minikube/#install-a-hypervisor) (like [VirtualBox](https://www.virtualbox.org/wiki/Downloads) or [HyperKit](https://github.com/moby/hyperkit)) to manage virtual machines
+1. Install a [Hypervisor](https://kubernetes.io/docs/tasks/tools/install-minikube/#install-a-hypervisor) (like [VirtualBox](https://www.virtualbox.org/wiki/Downloads) or [HyperKit](https://github.com/moby/hyperkit)) to manage virtual machines
 1. Install and Set Up [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) to deploy and manage apps on Kubernetes
 1. Install [Minikube](https://github.com/kubernetes/minikube/releases)
 
@@ -96,7 +108,7 @@ $ docker build -t mjhea0/flask-kubernetes ./services/server
 $ docker push mjhea0/flask-kubernetes
 ```
 
-> Make sure to replace `mjhea0` with your Docker Hub namespace in the above commands as well as in *kubernetes/flask-deployment.yml*
+> Make sure to replace `mjhea0` with your Docker Hub namespace in the above commands as well as in _kubernetes/flask-deployment.yml_
 
 Create the deployment:
 
@@ -127,7 +139,7 @@ $ minikube addons enable ingress
 $ kubectl apply -f ./kubernetes/minikube-ingress.yml
 ```
 
-Add entry to */etc/hosts* file:
+Add entry to _/etc/hosts_ file:
 
 ```
 <MINIKUBE_IP> hello.world
@@ -137,7 +149,6 @@ Try it out:
 
 1. [http://hello.world/books/ping](http://hello.world/books/ping)
 1. [http://hello.world/books](http://hello.world/books)
-
 
 #### Vue
 
@@ -149,7 +160,7 @@ $ docker build -t mjhea0/vue-kubernetes ./services/client \
 $ docker push mjhea0/vue-kubernetes
 ```
 
-> Again, replace `mjhea0` with your Docker Hub namespace in the above commands as well as in *kubernetes/vue-deployment.yml*
+> Again, replace `mjhea0` with your Docker Hub namespace in the above commands as well as in _kubernetes/vue-deployment.yml_
 
 Create the deployment:
 
