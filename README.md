@@ -104,11 +104,11 @@ $ kubectl exec postgres-<POD_IDENTIFIER> --stdin --tty -- createdb -U postgres b
 Build and push the image to Docker Hub:
 
 ```sh
-$ docker build -t mjhea0/flask-kubernetes ./services/server
-$ docker push mjhea0/flask-kubernetes
+$ docker build -t thieryl/flask-kubernetes ./services/server
+$ docker push thieryl/flask-kubernetes
 ```
 
-> Make sure to replace `mjhea0` with your Docker Hub namespace in the above commands as well as in _kubernetes/flask-deployment.yml_
+> Make sure to replace `thieryl` with your Docker Hub namespace in the above commands as well as in _kubernetes/flask-deployment.yml_
 
 Create the deployment:
 
@@ -142,25 +142,26 @@ $ kubectl apply -f ./kubernetes/minikube-ingress.yml
 Add entry to _/etc/hosts_ file:
 
 ```
-<MINIKUBE_IP> hello.world
+minikube ip
+<MINIKUBE_IP> vdia-test.world
 ```
 
 Try it out:
 
-1. [http://hello.world/books/ping](http://hello.world/books/ping)
-1. [http://hello.world/books](http://hello.world/books)
+1. [http://vdia-test.world/books/ping](http://vdia-test.world/books/ping)
+1. [http://vdia-test.world/books](http://vdia-test.world/books)
 
 #### Vue
 
 Build and push the image to Docker Hub:
 
 ```sh
-$ docker build -t mjhea0/vue-kubernetes ./services/client \
+$ docker build -t thieryl/vue-kubernetes ./services/client \
     -f ./services/client/Dockerfile-minikube
-$ docker push mjhea0/vue-kubernetes
+$ docker push thieryl/vue-kubernetes
 ```
 
-> Again, replace `mjhea0` with your Docker Hub namespace in the above commands as well as in _kubernetes/vue-deployment.yml_
+> Again, replace `thieryl` with your Docker Hub namespace in the above commands as well as in _kubernetes/vue-deployment.yml_
 
 Create the deployment:
 
@@ -174,4 +175,4 @@ Create the service:
 $ kubectl create -f ./kubernetes/vue-service.yml
 ```
 
-Try it out at [http://hello.world/](http://hello.world/).
+Try it out at [http://vdia-test.world/](http://vdia-test.world/).
