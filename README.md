@@ -4,7 +4,7 @@ For the purpose of this aptitude test, all docker images have already been built
 
 This stack was build using the following technologies:
 
-    - Python 3.7
+ >   - Python 3.7
     - Flask the python MicroFramework
     - Vue JS and Node JS
     - PostgreSQL for the database
